@@ -288,6 +288,13 @@ updateButton.addEventListener("click", () => {
   loadList();
 });
 
+// Firestoreにデータを保存する関数
+function saveToFirestore(listKey, item) {
+  import("./firebase.js").then((module) => {
+  const db = new module.Firebase();
+  db.addData(listKey, item);
+  });
+}
 const MAX_LIST_ITEMS = 5;
 // アイテム追加ボタンの処理
 registerButton.addEventListener("click", () => {
